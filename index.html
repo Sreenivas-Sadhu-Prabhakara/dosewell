@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+  <title>dosewell — a gentle medication reminder for elders</title>
+  <meta name="description" content="A big, calm, easy medication reminder. Add your medicines, choose Morning, Noon, Evening or Night, and tap one giant button when a dose is taken. Works fully offline, nothing leaves your device.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://sreenivas-sadhu-prabhakara.github.io/dosewell/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Sreenivas Sadhu Prabhakara">
+  <meta name="keywords" content="medication reminder, pill reminder, elderly medication tracker, dose reminder app, senior friendly reminder, take your pills, caregiver medication list, offline pill tracker, large button medicine reminder">
+  <meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1C1A15" media="(prefers-color-scheme: dark)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="dosewell">
+  <meta property="og:title" content="dosewell — a gentle medication reminder for elders">
+  <meta property="og:description" content="Add your medicines, choose Morning, Noon, Evening or Night, and tap one giant button when a dose is taken. Big, calm, and fully offline — nothing leaves your device.">
+  <meta property="og:url" content="https://sreenivas-sadhu-prabhakara.github.io/dosewell/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://sreenivas-sadhu-prabhakara.github.io/dosewell/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="dosewell — never miss a dose, one gentle tap at a time">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="dosewell — a gentle medication reminder for elders">
+  <meta name="twitter:description" content="Add your medicines, choose Morning, Noon, Evening or Night, and tap one giant button when a dose is taken. Big, calm, and fully offline.">
+  <meta name="twitter:image" content="https://sreenivas-sadhu-prabhakara.github.io/dosewell/og-image.png">
+  <meta name="twitter:image:alt" content="dosewell — never miss a dose, one gentle tap at a time">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Structured data (data block; not affected by script-src) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "dosewell",
+    "description": "A large-type, elder-friendly medication reminder. Add medicines, choose day-parts (Morning, Noon, Evening, Night), and mark each dose taken with one big button. Reminders can be read aloud. Runs fully offline in your browser; nothing is transmitted.",
+    "url": "https://sreenivas-sadhu-prabhakara.github.io/dosewell/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any (modern web browser)",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Person", "name": "Sreenivas Sadhu Prabhakara" },
+    "softwareVersion": "0.1.0",
+    "featureList": [
+      "Add medicines with a dose note and an optional photo of the pill",
+      "Simple day-parts instead of exact clock times: Morning, Noon, Evening, Night",
+      "A large Today view grouped by time of day",
+      "One giant Taken button per dose, saved per calendar day",
+      "Progress line showing how many doses are taken today",
+      "Read today's due doses aloud with the browser voice",
+      "Runs 100% offline; data stays in your browser only"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will dosewell remind me even when the app is closed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. dosewell shows and can read out your doses only while the page is open on the screen. True background alarms that ring when the app is closed need a server and notifications, which are deliberately out of scope. Keep the page open, or use it alongside a phone alarm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my medication list private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Everything you enter, including any pill photo, is saved only in your own browser on your own device. dosewell makes no network requests at all, so nothing about your medicines is ever sent anywhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to set exact clock times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. dosewell uses four simple day-parts — Morning, Noon, Evening and Night — because they are easier to read and remember than exact times. You choose which day-parts each medicine is for."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Taken button reset each day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every dose you mark as taken is recorded against today's date. When a new calendar day begins, the Today view starts fresh so you can track that day's doses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can dosewell take a photo of my pill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your device has a camera and you allow access, dosewell can capture a photo of the pill or box and show it as a thumbnail next to the medicine, so it is easy to recognise. The photo is stored only in your browser. You can always skip the photo."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#today">Skip to today's doses</a>
+
+  <!-- ============ HEADER + DAY ARC (signature) ============ -->
+  <header class="masthead" id="top">
+    <div class="masthead__inner">
+      <div class="brand">
+        <svg class="brand__mark" viewBox="0 0 48 48" role="img" aria-label="dosewell">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" class="brand__ring"></circle>
+          <path d="M13 24a11 11 0 0 1 22 0z" class="brand__pill-top"></path>
+          <path d="M13 24a11 11 0 0 0 22 0z" class="brand__pill-bot"></path>
+        </svg>
+        <span class="brand__word">dosewell</span>
+      </div>
+      <p class="brand__clock" id="clock" aria-live="off">
+        <span class="brand__day" id="clockDay">Today</span>
+        <span class="brand__time" id="clockTime">--:--</span>
+      </p>
+    </div>
+
+    <!-- The day-arc: sun rises across Morning / Noon / Evening / Night -->
+    <div class="dayarc" aria-hidden="true">
+      <svg class="dayarc__svg" viewBox="0 0 1200 150" preserveAspectRatio="none" role="presentation">
+        <defs>
+          <linearGradient id="skyGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" class="sky-a"></stop>
+            <stop offset="0.5" class="sky-b"></stop>
+            <stop offset="1" class="sky-c"></stop>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="1200" height="150" fill="url(#skyGrad)"></rect>
+        <path class="dayarc__path" d="M0 130 Q 300 20 600 55 T 1200 130" fill="none"></path>
+        <circle class="dayarc__now" id="dayarcNow" cx="0" cy="130" r="13"></circle>
+      </svg>
+      <div class="dayarc__marks">
+        <span class="dayarc__mark" data-part="morning"><span class="dayarc__glyph">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="5"></circle><path d="M12 4v3M4.5 9l2 1.5M19.5 9l-2 1.5M3 20h18"></path></svg>
+        </span><span class="dayarc__name">Morning</span></span>
+        <span class="dayarc__mark" data-part="noon"><span class="dayarc__glyph">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M20 4l-2 2M6 18l-2 2"></path></svg>
+        </span><span class="dayarc__name">Noon</span></span>
+        <span class="dayarc__mark" data-part="evening"><span class="dayarc__glyph">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="15" r="4.5"></circle><path d="M12 6v2M5 11l1.5 1M19 11l-1.5 1M3 20h18M8 20l1-2M16 20l-1-2"></path></svg>
+        </span><span class="dayarc__name">Evening</span></span>
+        <span class="dayarc__mark" data-part="night"><span class="dayarc__glyph">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 14.5A7.5 7.5 0 1 1 10 5a6 6 0 0 0 8 9.5z"></path><path d="M17 4l.7 1.6L19.3 6l-1.6.7L17 8.3l-.7-1.6L14.7 6l1.6-.7z" class="dayarc__star"></path></svg>
+        </span><span class="dayarc__name">Night</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ VIEW SWITCH ============ -->
+  <nav class="viewnav" aria-label="Screens">
+    <div class="viewnav__inner" role="tablist">
+      <button type="button" class="viewtab is-active" id="tabToday" role="tab" aria-selected="true" aria-controls="today">
+        <span class="viewtab__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zM4 9h16M9 2v4M15 2v4"></path></svg>
+        </span>
+        Today
+      </button>
+      <button type="button" class="viewtab" id="tabManage" role="tab" aria-selected="false" aria-controls="manage">
+        <span class="viewtab__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16M8 4l-1 3M17 4l-1 3M8 20l-1-3M17 20l-1-3"></path></svg>
+        </span>
+        My medicines
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ TODAY VIEW ============ -->
+    <section class="view view--today is-active" id="today" role="tabpanel" aria-labelledby="tabToday">
+      <div class="wrap">
+        <div class="today__head">
+          <h1 class="today__title" id="todayTitle">Today's doses</h1>
+          <p class="today__progress" id="todayProgress" aria-live="polite">Loading&hellip;</p>
+        </div>
+
+        <div class="today__actions">
+          <button type="button" class="btn btn--speak" id="speakBtn">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"></path><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"></path></svg>
+            </span>
+            Read what&rsquo;s due aloud
+          </button>
+        </div>
+
+        <!-- doses grouped by day-part, filled by app.js -->
+        <div class="doses" id="doses"></div>
+
+        <!-- empty state, shown when no medicines exist -->
+        <div class="empty" id="todayEmpty" hidden>
+          <div class="empty__glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="3"></rect><path d="M12 8V19M7 5h10l-1 3H8z"></path></svg>
+          </div>
+          <h2 class="empty__title">No medicines yet</h2>
+          <p class="empty__text">Add your first medicine and choose which times of day to take it. It only takes a moment.</p>
+          <button type="button" class="btn btn--primary btn--big" id="emptyAddBtn">Add a medicine</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MANAGE VIEW ============ -->
+    <section class="view view--manage" id="manage" role="tabpanel" aria-labelledby="tabManage" hidden>
+      <div class="wrap">
+        <div class="manage__head">
+          <h1 class="manage__title">My medicines</h1>
+          <button type="button" class="btn btn--primary" id="addBtn">
+            <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            Add a medicine
+          </button>
+        </div>
+
+        <ul class="medlist" id="medlist"></ul>
+
+        <div class="empty" id="manageEmpty" hidden>
+          <div class="empty__glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="3"></rect><path d="M12 8V19M7 5h10l-1 3H8z"></path></svg>
+          </div>
+          <h2 class="empty__title">Your list is empty</h2>
+          <p class="empty__text">Add the medicines you take, one at a time. You can add a photo so each one is easy to recognise.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ ADD / EDIT DIALOG ============ -->
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <div class="sheet__backdrop" id="sheetBackdrop"></div>
+    <div class="sheet__panel" role="document">
+      <div class="sheet__head">
+        <h2 class="sheet__title" id="sheetTitle">Add a medicine</h2>
+        <button type="button" class="iconbtn" id="sheetClose" aria-label="Close without saving">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+
+      <form class="medform" id="medform" novalidate>
+        <div class="field">
+          <label class="field__label" for="medName">Medicine name</label>
+          <input class="field__input" type="text" id="medName" name="medName" autocomplete="off" placeholder="For example, Metformin" required>
+          <p class="field__error" id="nameError" hidden>Please type the name of the medicine.</p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="medNote">Dose note <span class="field__opt">(optional)</span></label>
+          <input class="field__input" type="text" id="medNote" name="medNote" autocomplete="off" placeholder="For example, 1 tablet, after food">
+        </div>
+
+        <fieldset class="field field--parts">
+          <legend class="field__label">Which times of day?</legend>
+          <p class="field__hint">Choose one or more. These decide when the medicine appears in Today.</p>
+          <div class="partpick">
+            <label class="partchip" data-part="morning">
+              <input type="checkbox" name="part" value="morning">
+              <span class="partchip__face">
+                <span class="partchip__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="14" r="5"></circle><path d="M12 4v3M4.5 9l2 1.5M19.5 9l-2 1.5M3 20h18"></path></svg></span>
+                <span class="partchip__name">Morning</span>
+              </span>
+            </label>
+            <label class="partchip" data-part="noon">
+              <input type="checkbox" name="part" value="noon">
+              <span class="partchip__face">
+                <span class="partchip__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M20 4l-2 2M6 18l-2 2"></path></svg></span>
+                <span class="partchip__name">Noon</span>
+              </span>
+            </label>
+            <label class="partchip" data-part="evening">
+              <input type="checkbox" name="part" value="evening">
+              <span class="partchip__face">
+                <span class="partchip__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="4.5"></circle><path d="M12 6v2M5 11l1.5 1M19 11l-1.5 1M3 20h18M8 20l1-2M16 20l-1-2"></path></svg></span>
+                <span class="partchip__name">Evening</span>
+              </span>
+            </label>
+            <label class="partchip" data-part="night">
+              <input type="checkbox" name="part" value="night">
+              <span class="partchip__face">
+                <span class="partchip__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 14.5A7.5 7.5 0 1 1 10 5a6 6 0 0 0 8 9.5z"></path></svg></span>
+                <span class="partchip__name">Night</span>
+              </span>
+            </label>
+          </div>
+          <p class="field__error" id="partsError" hidden>Please choose at least one time of day.</p>
+        </fieldset>
+
+        <fieldset class="field field--photo">
+          <legend class="field__label">Photo of the pill <span class="field__opt">(optional)</span></legend>
+          <p class="field__hint" id="photoHint">A photo makes each medicine easy to recognise. It stays on this device.</p>
+
+          <div class="photo">
+            <div class="photo__stage" id="photoStage">
+              <video class="photo__video" id="photoVideo" playsinline muted hidden></video>
+              <canvas class="photo__canvas" id="photoCanvas" hidden></canvas>
+              <img class="photo__preview" id="photoPreview" alt="Captured photo of the medicine" hidden>
+              <div class="photo__placeholder" id="photoPlaceholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l1.5-2h7L18 7h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+                <span>No photo yet</span>
+              </div>
+            </div>
+
+            <div class="photo__controls">
+              <button type="button" class="btn btn--soft" id="cameraBtn">Use camera</button>
+              <button type="button" class="btn btn--primary" id="captureBtn" hidden>Capture photo</button>
+              <button type="button" class="btn btn--soft" id="retakeBtn" hidden>Retake</button>
+              <button type="button" class="btn btn--quiet" id="clearPhotoBtn" hidden>Remove photo</button>
+            </div>
+            <p class="photo__msg" id="photoMsg" role="status" hidden></p>
+          </div>
+        </fieldset>
+
+        <div class="medform__actions">
+          <button type="submit" class="btn btn--primary btn--big" id="saveBtn">Save medicine</button>
+          <button type="button" class="btn btn--quiet" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__disclaimer">
+        <strong>Not medical advice.</strong> dosewell is a simple reminder to help you keep track of doses.
+        It does not replace your doctor or pharmacist, and it cannot ring when the page is closed &mdash;
+        reminders only appear while dosewell is open on the screen. Always follow the instructions on your
+        medicines and from your healthcare provider. You remain responsible for taking the right dose at the right time.
+      </p>
+      <p class="foot__meta">
+        <span>Works 100% offline</span><span class="foot__dot">&middot;</span>
+        <span>No network, no accounts</span><span class="foot__dot">&middot;</span>
+        <span>Your data stays on this device</span><span class="foot__dot">&middot;</span>
+        <span>MIT&nbsp;License</span><span class="foot__dot">&middot;</span>
+        <span>&copy; 2026 Sreenivas&nbsp;Sadhu&nbsp;Prabhakara</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- live region for spoken/status announcements -->
+  <p class="sr-only" id="live" aria-live="polite"></p>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
